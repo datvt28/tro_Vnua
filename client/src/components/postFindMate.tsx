@@ -680,6 +680,17 @@ const PostFindMate: React.FC<PostFindMateProps> = ({
                             </div>
                         )}
 
+                        <div className="mt-2 flex items-center">
+    <label className="roboto-bold">Liên kết Google Map:</label>
+    <input
+        {...register('linkMap', { required: true })}
+        type="text"
+        placeholder="https://maps.google.com/..."
+        className="ml-2 rounded-[10px] mt-1 px-2 py-1 border-2 outline-none w-[80%]"
+    />
+</div>
+
+
                         {error && (
                             <div className="text-red-600 roboto-light-italic">
                                 {error}
