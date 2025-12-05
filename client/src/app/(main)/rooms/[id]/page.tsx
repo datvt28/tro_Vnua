@@ -16,7 +16,6 @@ import { Controller, useForm } from 'react-hook-form';
 import { FaRegStar, FaStar, FaTrash } from 'react-icons/fa';
 import toast, { Toaster } from 'react-hot-toast';
 import { useUser } from '@/store/userData';
-import CustomerMap from '@/components/Map';
 import Link from 'next/link';
 import Carousel from '@/components/carousel';
 import { MdOutlineBlock } from 'react-icons/md';
@@ -214,11 +213,6 @@ function RoomDetailPage({ params }: { params: Promise<{ id: string }> }) {
                     </div>
                 </div>
 
-                <CustomerMap
-                    latitude={roomDetail.location.coordinates.latitude}
-                    longitude={roomDetail.location.coordinates.longitude}
-                    setCoord={setCoord}
-                />
 
                 <div className="my-6">
                     <h2 className="text-xl roboto-bold text-gray-800">

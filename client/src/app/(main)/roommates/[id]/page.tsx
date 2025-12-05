@@ -15,7 +15,6 @@ import { Controller, useForm } from 'react-hook-form';
 import { FaRegStar, FaStar, FaTrash } from 'react-icons/fa';
 import toast, { Toaster } from 'react-hot-toast';
 import { useUser } from '@/store/userData';
-import CustomerMap from '@/components/Map';
 import { Roommate } from '@/schema/Roommate';
 import Link from 'next/link';
 import Carousel from '@/components/carousel';
@@ -214,12 +213,6 @@ function RoommateDetailPage({ params }: { params: Promise<{ id: string }> }) {
                         </Link>
                     </div>
                 </div>
-
-                <CustomerMap
-                    latitude={roommateDetail.location.coordinates.latitude}
-                    longitude={roommateDetail.location.coordinates.longitude}
-                    setCoord={setCoord}
-                />
 
                 <div className="my-6">
                     <h2 className="text-xl font-semibold text-gray-800">
