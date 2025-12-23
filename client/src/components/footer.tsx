@@ -157,7 +157,7 @@ function FooterPage() {
             </div>
 
             <div className="mt-10 text-center text-sm border-t border-gray-600 pt-6">
-                <p>&copy; 2024 - Trang web tìm trọ và tìm người ở ghép.</p>
+                <p>&copy; 2025 - Trang web tìm trọ và tìm người ở ghép.</p>
             </div>
         </footer>
     );

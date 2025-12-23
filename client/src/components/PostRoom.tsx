@@ -77,7 +77,7 @@ const PostRoom: React.FC<PostRoomProps> = ({ setFormVisible }) => {
     };
 
     //Set image
-    const handleImageChange = (
+    const handleImageChange = ( 
         e: React.ChangeEvent<HTMLInputElement>,
         index: number
     ) => {
@@ -504,3 +504,55 @@ const PostRoom: React.FC<PostRoomProps> = ({ setFormVisible }) => {
 };
 
 export default PostRoom;
+
+/*
+// Hàm xử lý khi người dùng chọn ảnh trên input
+const handleImageChange = (
+    e: React.ChangeEvent<HTMLInputElement>, // e là sự kiện onchange của input
+    index: number // index để biết ảnh nào trong mảng 5 ảnh đang được chọn
+) => {
+    // Lấy danh sách file người dùng chọn
+    const selectedFiles = e.target.files;
+
+    // Giới hạn dung lượng file tối đa 2MB
+    const maxSizeInMB = 2;
+    const maxSizeInBytes = maxSizeInMB * 1024 * 1024; // chuyển MB -> bytes
+
+    // Kiểm tra xem người dùng có chọn file không
+    if (selectedFiles) {
+        // Chuyển FileList thành array và lọc file hợp lệ
+        const validFiles = Array.from(selectedFiles).filter((file) => {
+            if (file.size > maxSizeInBytes) {
+                // Nếu file quá lớn thì cảnh báo và loại bỏ file đó
+                console.warn(
+                    `${file.name} vượt quá giới hạn kích thước ${maxSizeInMB} MB`
+                );
+                return false; // loại file không hợp lệ
+            }
+            return true; // giữ file hợp lệ
+        });
+
+        // Tạo URL tạm thời để hiển thị ảnh trên UI mà chưa upload
+        const imageUrls = validFiles.map((file) =>
+            URL.createObjectURL(file) // tạo URL tạm
+        );
+
+        // Cập nhật state changeImage để hiển thị ảnh trên giao diện
+        setChangeImage((prevFiles) => {
+            const newFiles = [...prevFiles]; // clone mảng để tránh mutate state trực tiếp
+            newFiles[index] = imageUrls[0]; // gán ảnh mới vào vị trí index
+            return newFiles; // React sẽ render lại component
+        });
+
+        // Cập nhật state files để lưu file thật dùng cho upload lên server/Firebase
+        setFiles((prevFiles) => {
+            const newFiles = [...prevFiles]; // clone mảng
+            newFiles[index] = validFiles[0]; // lưu file thực tế vào vị trí index
+            return newFiles; // state được cập nhật
+        });
+
+        // In ra console để kiểm tra file đã lưu
+        console.log(files);
+    }
+};
+*/
